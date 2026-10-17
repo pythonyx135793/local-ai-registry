@@ -1,7 +1,7 @@
 {
-  "id": "llama.cpp-qwen3.5-9b-q4-k-m-32k-gtx1080ti-cuda12",
+  "id": "llama.cpp-qwen3.5-9b-q4-k-m-128k-gtx1080ti-cuda12-ub128",
   "engine": "llama.cpp",
-  "about": "GTX 1080 Ti CUDA12 b11146, 32K f16 KV; all six registry lab gates measured on 2026-10-17",
+  "about": "GTX 1080 Ti CUDA12 b11146, 128K f16 KV, batch512/ubatch128; all six current registry lab gates measured on 2026-10-17",
   "image": "ghcr.io/ggml-org/llama.cpp:server-cuda12-b11146@sha256:52192a23c7b258044463aebba78826cdff39a7393b713edc313324b343a7b836",
   "backend": "nvidia",
   "port": 8080,
@@ -16,7 +16,7 @@
     "--port",
     "8080",
     "--ctx-size",
-    "32768",
+    "131072",
     "--n-gpu-layers",
     "999",
     "--flash-attn",
@@ -29,7 +29,11 @@
     "--reasoning-format",
     "deepseek",
     "--parallel",
-    "1"
+    "1",
+    "--batch-size",
+    "512",
+    "--ubatch-size",
+    "128"
   ],
   "env": {},
   "shm": "16g",
@@ -43,7 +47,7 @@
     }
   ],
   "config": null,
-  "ctx": 32768,
+  "ctx": 131072,
   "seqs": 1,
   "vision": false,
   "cards": 1
