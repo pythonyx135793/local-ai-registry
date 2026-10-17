@@ -23,6 +23,10 @@ The environment was Windows 10 with an Ubuntu 24.04 WSL2 guest, kernel `6.18.54.
 
 The production recipe now uses the Linux container profile. The earlier [native Windows measurements](../gtx1080ti-windows-cuda12/README.md) remain historical supporting evidence. The maintainer [requested this container replacement and waived the kit reference panel/sweep](https://github.com/sybil-solutions/local-ai-registry/pull/276#issuecomment-6190931161); independent maintainer reproduction remains required.
 
+## Current integration status
+
+After this run, integration with main `b395198e77eb31138cd33a6b8a5beedef30b7c62` found the new 128K KV floor from #292. On cards above 8 GB, it requires at least 131,072 KV tokens. This measured 32K/single-slot recipe provides 33,792 by the registry's calculation, so current `lab.py check` rejects it and the plugin exporter excludes it. The six measured gates passed, but this is not yet a passing current-main submission. No exemption or validation rule was changed. A separate 128K attempt is being prepared; its results must be measured independently.
+
 ## Reproduction
 
 Use a Linux Docker Engine with NVIDIA Container Toolkit and the exact weights above. Set `GPU218_MODEL_DIR` to the directory containing the checked GGUF. The commands below use the tracked profile's image and arguments, a read-only model mount and a loopback-only endpoint.
