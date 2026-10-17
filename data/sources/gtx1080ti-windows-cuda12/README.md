@@ -1,5 +1,7 @@
 # GTX 1080 Ti native Windows supporting evidence
 
+Historical owner-card measurements. The production recipe now uses the measured [Linux CUDA12 container](../gtx1080ti-cuda12-container/README.md), which passed all six unchanged registry lab gates on 2026-10-17.
+
 Actual local trial on 2026-10-15, using the unchanged registry lab at a7769baeccb11a97ba3abc57aeedca645672eeea. The owner GTX 1080 Ti ran Qwen3.5-9B Q4_K_M at 32,768 context. All six gates passed; first-30-second decode was 37.5 tok/s, near-full recall used25,740 input tokens, and uncapped generation completed10,161tokens. Desktop applications remained running. These are supporting local measurements, not an isolated recipe-kit acceptance.
 
 ## Evidence
@@ -17,4 +19,4 @@ No output caps, clock/power/fan changes or disabled CUDA graphs. Use explicit Py
 
 The card metadata field bandwidth_gb_s484 is the manufacturer specification, not a measurement from this trial: https://developer.nvidia.com/blog/nvidia-turing-architecture-in-depth/ (GTX1080Ti comparison table).
 
-The kit currently exposes only Flash-Next/SGLang targets and requires a container/reference panel. Native Windows submission format and bounty ordering remain with the maintainer. No fabricated kit submission, container run or panel score is included.
+The maintainer requested a plugin-runnable Linux container replacement and waived the kit reference panel/sweep for this rentable card. That separate container run and its exact evidence are documented in the linked README. This directory retains the original Windows evidence; its values were not substituted for the container measurements.
